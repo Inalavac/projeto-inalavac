@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f172a">
+    <title>InalaVac - Projeto ImunAr</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <!-- TELA DE CADASTRO -->
+    <div class="auth-screen" id="authScreen">
+        <div class="auth-card">
+            <div class="auth-logo">Inala<span>Vac</span></div>
+            <div class="system-indicator"><span></span> SISTEMA DE ACESSO</div>
+
+            <h2>Acesso ao Projeto ImunAr</h2>
+            <p class="auth-subtitle">
+                Cadastre-se para acessar a demonstração interativa do projeto.
+            </p>
+
+            <form id="registerForm" novalidate>
+                <div class="input-group">
+                    <label for="fullName">Nome completo</label>
+                    <input type="text" id="fullName" placeholder="Digite seu nome completo">
+                </div>
+
+                <div class="input-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" placeholder="seu@email.com">
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Senha demonstrativa</label>
+                    <input type="password" id="password" placeholder="Crie uma senha fictícia">
+                </div>
+
+                <div class="input-group">
+                    <label for="confirmPassword">Confirmar senha</label>
+                    <input type="password" id="confirmPassword" placeholder="Digite novamente">
+                </div>
+
+                <label class="terms">
+                    <input type="checkbox" id="acceptTerms">
+                    <span>Li e aceito participar da demonstração do Projeto ImunAr.</span>
+                </label>
+
+                <button type="submit" class="auth-button">
+                    Criar cadastro e entrar
+                </button>
+
+                <div class="auth-message" id="authMessage" aria-live="polite"></div>
+            </form>
+
+            <div class="academic-warning">
+                <strong>Projeto acadêmico</strong><br>
+                Cadastro apenas demonstrativo. Não utilize uma senha real. Não é um sistema de autenticação seguro.
+            </div>
+        </div>
+    </div>
+
+    <!-- CABEÇALHO -->
+    <header>
+        <div class="brand-name">Inala<span>Vac</span></div>
+        <h1>Projeto ImunAr</h1>
+        <p>Tecnologia de imunização voluntária por microaerossol de mucosa</p>
+
+        <nav class="top-nav">
+            <a href="#informacoes">Informações do Projeto</a>
+
+            <button type="button" class="account-button" id="accountButton">
+                👤 Conta
+            </button>
+
+            <button type="button" class="ethics-button" id="ethicsButton">
+                ⚖️ Ética e Regulamentação
+            </button>
+        </nav>
+    </header>
+
+    <!-- PAINEL DA CONTA -->
+    <div class="modal-overlay" id="accountPanel" aria-hidden="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div>
+                    <span class="modal-label">CONTA</span>
+                    <h3>Minha conta</h3>
+                </div>
+                <button type="button" class="modal-close" id="accountClose">×</button>
+            </div>
+
+            <div class="account-user">
+                <div class="account-avatar">👤</div>
+                <div>
+                    <strong id="accountName">Usuário</strong>
+                    <span id="accountEmail">—</span>
+                </div>
+            </div>
+
+            <div class="account-actions">
+                <button type="button" class="account-action" id="logoutButton">
+                    🚪 Sair da demonstração
+                </button>
+
+                <button type="button" class="account-action" id="switchAccountButton">
+                    🔄 Entrar com outra conta
+                </button>
+
+                <button type="button" class="account-action danger" id="resetAccountButton">
+                    🗑️ Refazer cadastro
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAINEL DE ÉTICA -->
+    <div class="modal-overlay" id="ethicsPanel" aria-hidden="true">
+        <div class="modal-content ethics-modal">
+            <div class="modal-header">
+                <div>
+                    <span class="modal-label">PRINCÍPIOS DO PROJETO</span>
+                    <h2>Ética e Regulamentação</h2>
+                </div>
+                <button type="button" class="modal-close" id="ethicsClose">×</button>
+            </div>
+
+            <div class="ethics-intro">
+                <p>O Projeto ImunAr considera a ética, a segurança e a regulamentação sanitária elementos fundamentais para qualquer proposta relacionada à saúde.</p>
+                <p>Esta seção apresenta princípios para uma discussão acadêmica, respeitando a legislação brasileira e a avaliação dos órgãos competentes.</p>
+            </div>
+
+            <div class="ethics-items">
+                <div class="ethics-item">
+                    <span>01</span>
+                    <div>
+                        <h3>🛡️ Segurança</h3>
+                        <p>Qualquer tecnologia voltada à saúde deve passar por avaliação técnica, científica e sanitária antes de ser utilizada.</p>
+                    </div>
+                </div>
+
+                <div class="ethics-item">
+                    <span>02</span>
+                    <div>
+                        <h3>📋 Regulamentação</h3>
+                        <p>Soluções desse tipo devem atender aos processos regulatórios aplicáveis.</p>
+                    </div>
+                </div>
+
+                <div class="ethics-item">
+                    <span>03</span>
+                    <div>
+                        <h3>🤝 Consentimento</h3>
+                        <p>A participação em pesquisas deve ser voluntária e acompanhada de informações claras sobre objetivos, riscos e limitações.</p>
+                    </div>
+                </div>
+
+                <div class="ethics-item">
+                    <span>04</span>
+                    <div>
+                        <h3>🔬 Evidência científica</h3>
+                        <p>Afirmações sobre eficácia e benefícios médicos devem ser sustentadas por evidências adequadas.</p>
+                    </div>
+                </div>
+
+                <div class="ethics-item">
+                    <span>05</span>
+                    <div>
+                        <h3>⚖️ Responsabilidade</h3>
+                        <p>O desenvolvimento deve priorizar a proteção das pessoas e respeitar as normas vigentes.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ethics-notice">
+                <strong>Importante</strong>
+                <p>Esta seção apresenta princípios acadêmicos e não representa aprovação, autorização ou certificação da Anvisa.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main>
+        <section class="simulator-card">
+            <h2>Simulador de Inalação Normobárica BioSegura</h2>
+
+            <p>
+                Clique no botão abaixo para iniciar a representação visual das etapas do protótipo.
+                
+                
+            </p>
+
+            <div class="cabin-display" id="cabinDisplay">
+                <div class="cabin-top-light"></div>
+                <div class="mist" id="mistEffect"></div>
+                <div class="human-model">👤</div>
+                <div class="shield-ring"></div>
+                <div class="particles" id="particles"></div>
+
+                <div class="cabin-status">
+                    <span></span> SIMULAÇÃO VISUAL
+                </div>
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-info">
+                    <span>Progresso da simulação</span>
+                    <span id="progressPercent">0%</span>
+                </div>
+
+                <div class="progress-bar" id="progressBar"
+                     role="progressbar" aria-valuemin="0"
+                     aria-valuemax="100" aria-valuenow="0">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+
+            <button class="btn-action" id="startButton" type="button">
+                <span class="button-icon">▶</span>
+                INICIAR SISTEMA INALAVAC
+            </button>
+
+            <div class="status-text" id="statusMessage" aria-live="polite">
+                Simulação pronta. Aguardando início...
+            </div>
+
+            <!-- FORMULÁRIO GOOGLE FORMS -->
+            <div class="form-section">
+                <div class="form-header">
+                    <div class="form-icon">📋</div>
+                    <div>
+                        <h3>Formulário InalaVac</h3>
+                        <p>Responda ao formulário da inalavac.</p>
+                    </div>
+                </div>
+
+                <div class="form-embed-container">
+                    <iframe
+                        src="https://docs.google.com/forms/d/e/1FAIpQLSc_OP3woNtVIKPJFeKu7sP7BPO7Ke4ShhjTNUrGHLZw4Ypa1Q/viewform?embedded=true"
+                        title="Formulário de pesquisa InalaVac"
+                        loading="lazy">
+                        Carregando…
+                    </iframe>
+                </div>
+
+                <p class="form-feedback">
+                    Se o formulário não carregar, você pode abri-lo em outra aba.
+                </p>
+
+                <a
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSc_OP3woNtVIKPJFeKu7sP7BPO7Ke4ShhjTNUrGHLZw4Ypa1Q/viewform"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="form-button">
+                    📄 Abrir formulário em outra aba
+                </a>
+            </div>
+        </section>
+
+        <!-- INFORMAÇÕES -->
+        <section class="info-grid" id="informacoes">
+            <div class="info-box">
+                <div class="info-number">01</div>
+                <h3>🛡️ Pilar Ético</h3>
+                <p>O processo é 100% individual e voluntário. O sistema de inalação normobárica é projetado para que o aerossol não escape para o ambiente externo.</p>
+            </div>
+
+            <div class="info-box">
+                <div class="info-number">02</div>
+                <h3>🧬 Pilar Biológico</h3>
+                <p>A névoa microscópica visa ativar os anticorpos IgA nas mucosas do nariz e da garganta, criando uma barreira de neutralização contra o VSR e a pneumonia.</p>
+            </div>
+
+            <div class="info-box">
+                <div class="info-number">03</div>
+                <h3>📋  Instruções de aplicação</h3>
+                <p>A aplicação é simples: o usuário utiliza o sistema de inalação normobárica e respira normalmente enquanto a névoa é liberada por 2 a 5 minutos. O composto consiste em uma solução salina estéril com anticorpos monoclonais e estabilizadores orgânicos.</p>
+            </div>
+
+            <div class="info-box">
+                <div class="info-number">04</div>
+                <h3>🏛️ Biossegurança</h3>
+                <p>O conceito prevê operação sob protocolos estritos de biossegurança e futura certificação pelos órgãos competentes. O uso de máscara facial vedada (como o modelo ResMed AirFit F20) evita dispersão de partículas no ambiente.</p>
+            </div>
+        </section>
+
+        <!-- AVISO -->
+        <section class="academic-notice">
+            <div class="notice-icon">⚠️</div>
+            <div>
+                <h3>Aviso importante</h3>
+                <p>Nosso projeto tem como objetivo apresentar uma proposta acadêmica na área da saúde através da imunização inalatória, com base em diretrizes públicas consultadas na própria Anvisa.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <div class="footer-brand">Inala<span>Vac</span></div>
+        <p>© 2026 InalaVac Biotecnologia. Projeto acadêmico conceitual.</p>
+    </footer>
+
+</body>
+</html>
+<head><script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script></head>
